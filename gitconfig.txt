@@ -1,3 +1,7 @@
+# include this in your .gitconfig like so:
+# [include]
+#     path = path/to/this/file
+
 [alias]
     s = status -sb
     
