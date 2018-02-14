@@ -1,0 +1,32 @@
+[alias]
+    s = status -sb
+    
+    # recent commits
+    last = log -n 10 --oneline
+    
+    # my preferred log format
+    logf = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)'
+    
+    # log with one line per commit, no line-wrap
+    lg = "! lg(){ git logf --graph --color "$@" | less -SRXF;}; lg"
+    
+    # unpushed commits
+    topush = "! b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate origin/$b..HEAD"
+    
+    # commits to be pulled
+    topull = "! b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate HEAD..origin/$b"
+    
+    # stash, pull, pop stash, print summary
+    p = "! echo 'Will pull:'; git topull; echo; git stash && git pull && echo && git stash pop"
+    
+    # prints details of commit whose subject contains the search string
+    # if multiple, displays list the prints details of first match
+    det = "!det(){ \
+               if [ -z "$1" ]; then \
+                   echo 'Specify a search string'; \
+               else \
+                   git log --oneline --grep "$1"; \
+                   echo; \
+                   git log --pretty='%H' --grep "$1" | head -1 | xargs git show --format=format:%b ; \
+               fi }; \
+           det"
