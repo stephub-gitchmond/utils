@@ -1,5 +1,5 @@
 [alias]
-    s = status -sb
+    s = "! git fetch; git status -sb"
     
     # recent commits
     last = log -n 10 --oneline
@@ -11,10 +11,10 @@
     lg = "! lg(){ git logf --graph --color "$@" | less -SRXF;}; lg"
     
     # unpushed commits
-    topush = "! b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate origin/$b..HEAD"
+    topush = "! git fetch; b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate origin/$b..HEAD"
     
     # commits to be pulled
-    topull = "! b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate HEAD..origin/$b"
+    topull = "! git fetch; b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate HEAD..origin/$b"
     
     # stash, pull, pop stash, print summary
     p = "! echo 'Will pull:'; git topull; echo; git stash && git pull && echo && git stash pop"
