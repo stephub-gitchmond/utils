@@ -1,5 +1,5 @@
 [alias]
-    s = "! git fetch; git status -sb"
+    s = status -sb
     
     # recent commits
     last = log -n 10 --oneline
