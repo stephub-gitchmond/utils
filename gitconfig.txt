@@ -14,7 +14,7 @@
     logf = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)'
     
     # log with one line per commit, no line-wrap
-    lg = "! lg(){ git logf --graph --color "$@" | less -SRXF;}; lg"
+    lg = "! lg(){ git logf --graph --color \"$@\" | less -SRXF;}; lg"
     
     # unpushed commits
     topush = "! git fetch -q; b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate origin/$b..HEAD"
@@ -31,8 +31,8 @@
                if [ -z "$1" ]; then \
                    echo 'Specify a search string'; \
                else \
-                   git log --oneline --grep "$1"; \
+                   git log --oneline --grep \"$1\"; \
                    echo; \
-                   git log --pretty='%H' --grep "$1" | head -1 | xargs git show --format=format:%b ; \
+                   git log --pretty='%H' --grep \"$1\" | head -1 | xargs git show --format=format:%b ; \
                fi }; \
            det"
