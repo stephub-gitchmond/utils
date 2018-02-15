@@ -17,10 +17,10 @@
     lg = "! lg(){ git logf --graph --color "$@" | less -SRXF;}; lg"
     
     # unpushed commits
-    topush = "! git fetch; b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate origin/$b..HEAD"
+    topush = "! git fetch -q; b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate origin/$b..HEAD"
     
     # commits to be pulled
-    topull = "! git fetch; b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate HEAD..origin/$b"
+    topull = "! git fetch -q; b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate HEAD..origin/$b"
     
     # stash, pull, pop stash, print summary
     p = "! echo 'Will pull:'; git topull; echo; git stash && git pull && echo && git stash pop"
