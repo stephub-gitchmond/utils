@@ -23,7 +23,13 @@
     topull = "! git fetch -q; b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate HEAD..origin/$b"
     
     # stash, pull, pop stash, print summary
-    p = "! echo 'Will pull:'; git topull; echo; git stash && git pull && echo && git stash pop"
+    p = "! t=\"`git topull`\"; \
+           if [ -z $t ]; then \
+               echo 'Up to date'; \
+           else \
+               echo 'Will pull:'; echo $t; echo; \
+               git stash && git pull && echo && git stash pop; \
+           fi"
     
     # prints details of commit whose subject contains the search string
     # if multiple, displays list the prints details of first match
