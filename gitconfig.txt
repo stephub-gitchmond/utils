@@ -17,10 +17,10 @@
     lg = "! lg(){ git logf --graph --color \"$@\" | less -SRXF;}; lg"
     
     # unpushed commits
-    topush = "! git fetch -q; b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate origin/$b..HEAD"
+    topush = "! git fetch -q; b=`git rev-parse --abbrev-ref HEAD`; git log --oneline --no-decorate origin/$b..HEAD"
     
     # commits to be pulled
-    topull = "! git fetch -q; b=`git name-rev --name-only HEAD`; git log --oneline --no-decorate HEAD..origin/$b"
+    topull = "! git fetch -q; b=`git rev-parse --abbrev-ref HEAD`; git log --oneline --no-decorate HEAD..origin/$b"
     
     # stash, pull, pop stash, print summary
     p = "! t=\"`git topull`\"; \
