@@ -23,8 +23,8 @@
     topull = "! git fetch -q; b=`git rev-parse --abbrev-ref HEAD`; git log --oneline --no-decorate HEAD..origin/$b"
     
     # stash, pull, pop stash, print summary
-    p = "! t=\"`git topull`\"; \
-           if [ -z $t ]; then \
+    p = "! t=`git topull --color`; \
+           if [ -z \"$t\" ]; then \
                echo 'Up to date'; \
            else \
                echo 'Will pull:'; echo $t; echo; \
