@@ -3,7 +3,9 @@
 #     path = path/to/this/file
 
 [alias]
-    fs = "! git fetch -q; git s"
+    fs = "! git f -q; git s"
+    
+    f = fetch --prune
     
     s = status -sb
     
