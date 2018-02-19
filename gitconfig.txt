@@ -27,8 +27,8 @@
            if [ -z \"$t\" ]; then \
                echo 'Up to date'; \
            else \
-               echo 'Will pull:'; echo $t; echo; \
-               git stash && git pull && echo && git stash pop; \
+               echo 'Will pull:'; echo \"$t\"; echo; \
+               git stash && git pull -q && echo && git stash pop; \
            fi"
     
     # prints details of commit whose subject contains the search string
