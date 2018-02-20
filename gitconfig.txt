@@ -8,7 +8,7 @@
 [alias]
     fs = "! git f -q; git s"
     
-    f = fetch --prune
+    f = fetch -a --prune
     
     s = status -sb
     
