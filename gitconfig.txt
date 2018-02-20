@@ -2,6 +2,9 @@
 # [include]
 #     path = path/to/this/file
 
+[grep]
+    extendedRegexp=true
+
 [alias]
     fs = "! git f -q; git s"
     
