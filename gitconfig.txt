@@ -12,6 +12,8 @@
     
     s = status -sb
     
+    wdiff = diff --word-diff
+    
     # recent commits
     last = log -n 10 --oneline
     
