@@ -15,7 +15,7 @@
     wdiff = diff --word-diff
     
     # recent commits
-    last = log -n 10 --oneline
+    last = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)' -n 10
     
     # my preferred log format
     logf = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)'
