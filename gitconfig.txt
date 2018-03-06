@@ -7,28 +7,28 @@
 
 [alias]
     fs = "! git f -q; git s"
-    
+
     f = fetch -a --prune
-    
+
     s = status -sb
-    
-    wdiff = diff --word-diff
-    
+
+    b = branch -vv
+
     # recent commits
     last = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)' -n 10
-    
+
     # my preferred log format
     logf = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)'
-    
+
     # log with one line per commit, no line-wrap
     lg = "! lg(){ git logf --graph --color \"$@\" | less -SRXF;}; lg"
-    
+
     # unpushed commits
     topush = "! git fetch -q; b=`git rev-parse --abbrev-ref HEAD`; git log --oneline --no-decorate origin/$b..HEAD"
-    
+
     # commits to be pulled
     topull = "! git fetch -q; b=`git rev-parse --abbrev-ref HEAD`; git log --oneline --no-decorate HEAD..origin/$b"
-    
+
     # stash, pull, pop stash, print summary
     p = "! t=`git topull --color`; \
            if [ -z \"$t\" ]; then \
@@ -37,7 +37,7 @@
                echo 'Will pull:'; echo \"$t\"; echo; \
                git stash && git pull -q && echo && git stash pop; \
            fi"
-    
+
     # prints details of commit whose subject contains the search string
     # if multiple, displays list the prints details of first match
     det = "!det(){ \
