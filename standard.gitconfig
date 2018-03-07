@@ -14,6 +14,8 @@
 
     b = branch -vv
 
+    r = rebase --autostash --autosquash
+
     # recent commits
     last = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)' -n 10
 
