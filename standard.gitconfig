@@ -37,7 +37,7 @@
                echo 'Up to date'; \
            else \
                echo 'Will pull:'; echo \"$t\"; echo; \
-               git stash && git pull -q && echo && git stash pop; \
+               git pull -q --autostash; \
            fi"
 
     # prints details of commit whose subject contains the search string
