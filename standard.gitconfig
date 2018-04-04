@@ -20,10 +20,7 @@
     last = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)' -n 10
 
     # my preferred log format
-    logf = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)'
-
-    # log with one line per commit, no line-wrap
-    lg = "! lg(){ git logf --graph --color \"$@\" | less -SRXF;}; lg"
+    lg = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)'
 
     # unpushed commits
     topush = "! git fetch -q; b=`git rev-parse --abbrev-ref HEAD`; git log --oneline --no-decorate origin/$b..HEAD"
@@ -39,15 +36,3 @@
                echo 'Will pull:'; echo \"$t\"; echo; \
                git pull -q --autostash; \
            fi"
-
-    # prints details of commit whose subject contains the search string
-    # if multiple, displays list the prints details of first match
-    det = "!det(){ \
-               if [ -z "$1" ]; then \
-                   echo 'Specify a search string'; \
-               else \
-                   git log --oneline --grep \"$1\"; \
-                   echo; \
-                   git log --pretty='%H' --grep \"$1\" | head -1 | xargs git show --format=format:%b ; \
-               fi }; \
-           det"
