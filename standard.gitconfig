@@ -7,6 +7,8 @@
 
 [alias]
     fs = "! git f -q; git s"
+    
+    fb = "! git f -q; git b"
 
     f = fetch -a --prune
 
