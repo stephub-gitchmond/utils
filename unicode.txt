@@ -16,8 +16,10 @@ fractions:
 ⅐ ⅑ ⅒ ⅓ ⅔ ⅕ ⅖ ⅗ ⅘ ⅙ ⅚ ⅛ ⅜ ⅝ ⅞ ⅟ ↉
 ℀ ℁ ℅ ℆ № ℠ ™ ⅍
 
-accents:
+letters:
 a á à ã ă â ä e é è ê ë i í ì ĩ o ó ò õ ô ơ ö u ú ù ũ ư ü y ý ỳ đ ħ
+æ Æ ǽ Ǽ ǣ Ǣ
+Þ þ
 
 maths:
 ≥ ≤ × ⋅ π Σ
@@ -27,6 +29,7 @@ maths:
 punctuation:
 – (en-dash)
 — (em-dash)
+¿ ‽
 
 greek:
  Α α    Β β    Γ γ    Δ δ    Ε ε
