@@ -25,10 +25,10 @@
     lg = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)'
 
     # unpushed commits
-    topush = "! git fetch -q; b=`git rev-parse --abbrev-ref HEAD`; git log --oneline --no-decorate origin/$b..HEAD"
+    topush = "! git fetch -q --prune; git log --oneline --no-decorate @{u}..HEAD"
 
     # commits to be pulled
-    topull = "! git fetch -q; b=`git rev-parse --abbrev-ref HEAD`; git log --oneline --no-decorate HEAD..origin/$b"
+    topull = "! git fetch -q --prune; git log --oneline --no-decorate HEAD..@{u}"
 
     # stash, pull, pop stash, print summary
     p = "! t=`git topull --color`; \
@@ -36,5 +36,8 @@
                echo 'Up to date'; \
            else \
                echo 'Will pull:'; echo \"$t\"; echo; \
-               git pull -q --autostash; \
+               b=`git symbolic-ref --short HEAD`; \
+               git checkout -B $b @{u}; \
            fi"
+    
+    cam = commit --amend --no-edit
