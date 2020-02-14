@@ -18,11 +18,14 @@
 
     r = rebase --autostash --autosquash
 
-    # recent commits
-    last = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)' -n 10
-
     # my preferred log format
-    lg = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)'
+    lg = log --format=format:'%C(yellow)%h%C(reset) %s - %C(dim green)%aN%C(reset) - %C(yellow)%ar%C(reset) %C(dim red)%d%C(reset)' --graph
+    
+    # log with horizontal scrolling
+    llg = "! git lg --color $1 | less -S -R #"
+
+    # recent commits
+    last = lg -n 10
 
     # unpushed commits
     topush = "! git fetch -q --prune; git log --oneline --no-decorate @{u}..HEAD"
@@ -36,8 +39,12 @@
                echo 'Up to date'; \
            else \
                echo 'Will pull:'; echo \"$t\"; echo; \
-               b=`git symbolic-ref --short HEAD`; \
+               b=`git branch --show-current`; \
                git checkout -B $b @{u}; \
            fi"
     
     cam = commit --amend --no-edit
+
+    nuke = "! git branch -d $1 && git push -d origin $1"
+
+    dch = diff --cached
