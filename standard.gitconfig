@@ -48,3 +48,7 @@
     nuke = "! git branch -d $1 && git push -d origin $1"
 
     dch = diff --cached
+
+    curr = branch --show-current
+
+    conflicts = diff --name-only --diff-filter=U
